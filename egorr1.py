@@ -19,11 +19,19 @@ def num2dac(value):
     GPIO.output(gpio, binary)
 None
 try:
+    GPIO.setup(4, GPIO.IN)
+    GPIO.setup(17, GPIO.OUT)
+    GPIO.output(17, 1)
     while True:
-        num = int(input('Enter number(-1 to exit): '))
+        num = int(input('Enter value (-1 to exit) > 25'))
         if num == -1:
             exit()
         num2dac(num)
+        print(num, "=", '%.2fV' % float(3.3 * num / 256))
+        while 
+        #print(GPIO.input(4))
 finally:
     GPIO.output(gpio, 0)
     GPIO.cleanup(gpio)
+    #GPIO.output([4, 17], 0)
+    #GPIO.cleanup([4, 17])
